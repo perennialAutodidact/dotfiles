@@ -89,23 +89,26 @@ return packer.startup(function(use)
     })
         -- rainbow delimiters
         use({ "HiPhish/rainbow-delimiters.nvim" })
-    
+
         -- indent indication
         use({ "lukas-reineke/indent-blankline.nvim" })
 
     -- auto-complete & intellisense
     use({ "williamboman/mason.nvim" })
-    use({ "williamboman/mason-lspconfig.nvim" })
+    use({ "williamboman/mason-lspconfig.nvim", after="mason.nvim" })
     use({ "neovim/nvim-lspconfig" })
-    use({ "hrsh7th/nvim-cmp" })
-    use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' })
 
-    -- buffer auto-completion
-    use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' })
-    -- path auto-completion
-    use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' })
-    -- cmdline auto-completion
-    use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' })
+    use({
+        "hrsh7th/nvim-cmp",
+        -- event="InsertEnter",
+        -- config=function()
+        --     require("cmp.cmp")
+        -- end
+    })
+    use({ "hrsh7th/cmp-nvim-lsp" })
+    use({ "hrsh7th/cmp-path", after="nvim-cmp" })
+    use({ "hrsh7th/cmp-buffer", after="nvim-cmp" })
+    use({ "hrsh7th/cmp-cmdline", after="nvim-cmp" })
 
         -- snippets
         use({
