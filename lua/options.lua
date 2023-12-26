@@ -1,24 +1,28 @@
-local opt = vim.opt
+vim.opt.clipboard = 'unnamedplus'
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+vim.opt.mouse = 'a'
 
-opt.clipboard = 'unnamedplus'
-opt.completeopt = {'menu', 'menuone', 'noselect'}
-opt.mouse = 'a'
-
--- Tab
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
+--Tab
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 -- UI config
-opt.number = true
-opt.relativenumber = true
-opt.cursorline = true
-opt.splitbelow = true
-opt.splitright = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.termguicolors = true
 
 -- Searching
-opt.incsearch = true
-opt.ignorecase = true 
-opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
+-- Colors
+require('everforest').load()
+vim.g.transparent_enabled = true
+
+-- Font
+vim.g.guifont = 'Fira\\ Code'

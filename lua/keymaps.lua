@@ -6,8 +6,13 @@ local function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- change leader to Space
-vim.g.mapleader = ' '
+-- Modes
+--   "n" - normal mode
+--   "i" - insert mode
+--   "v" - visual mode
+--   "x" - visual block mode
+--   "t" - terminal mode
+--   "c" - command mode
 
 -----------------
 -- NORMAL MODE --
@@ -38,3 +43,47 @@ map('n', '<C-Right>', ':vertical resize +2<CR>')
 -- Hint: start visual mode with the same area as the previous area and the same mode
 map('v', '<', '<gv', opts)
 map('v', '>', '>gv', opts)
+local opts = { noremap = true }
+
+-- shorten keymap function name
+local keymap = vim.api.nvim_set_keymap
+
+-- remap space as leader key
+keymap("", "<Space>", "<Nop>", opts)
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Window splitting
+keymap("n", "<leader>\\", ":vertical split<CR>", opts)
+keymap("n", "<leader>-", ":split<CR>", opts)
+
+-- Code editing
+  -- comments
+  keymap("n", "<leader>/", "gcc", {})
+  keymap("v", "<leader>/", "gc", {})
+
+-- Nvim Tree
+keymap("n", "<leader>E", ":NvimTreeToggle<CR>", {})
+
+
+-- True Zen Mode
+-- keymap("n", "<leader>zn", ":TZNarrow<CR>", opts)
+
+-- Telescope
+-- keymap("n", "<leader>ff", ":Telescope find_files<CR>", {})
+-- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", {})
+-- keymap("n", "<leader>fb", ":Telescope buffers<CR>", {})
+-- keymap("n", "<leader>fh", ":Telescope help_tags<CR>", {})
+
+-------------
+-- Command --
+------------
+
+-- reload neovim config without restarting
+keymap("n", "<leader>!", ":source $MYVIMRC<CR><Esc>", {})
+
+-- autoformat text and markdown files 
+-- keymap("n", "<leader>ll", "gggqG", opts)
+
+-- Cancel search highlighting with ESC
+keymap("n", "<ESC>", ":nohlsearch<Bar>:echo<CR>", opts)
