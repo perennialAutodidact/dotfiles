@@ -5,25 +5,25 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 local modules = {
-    "cmp.cmp",
-    -- "cmp.snippets",
-    -- "cmp.luasnip",
+    "autocomplete.cmp_config",
+    -- "autocomplete.snippets",
+    -- "autocomplete.luasnip",
 
     "keymaps",
-    -- "lualine",
-    -- "nvim_tree",
+    "lualine",
+    "nvim_tree",
     "options",
     "plugins",
 
     "lsp.mason",
     "lsp.lsp",
 
-    -- "themes.everforest",
+    "themes.everforest",
 
-    -- "treesitter.indent_blankline",
-    -- "treesitter.rainbow_delimiters",
-    -- "treesitter.transparent_config",
-    -- "treesitter.treesitter",
+    "treesitter.indent_blankline",
+    "treesitter.rainbow_delimiters",
+    "treesitter.transparent_config",
+    "treesitter.treesitter",
 }
 
 

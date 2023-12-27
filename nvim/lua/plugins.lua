@@ -95,20 +95,20 @@ return packer.startup(function(use)
 
     -- auto-complete & intellisense
     use({ "williamboman/mason.nvim" })
-    use({ "williamboman/mason-lspconfig.nvim", after="mason.nvim" })
+    use({ "williamboman/mason-lspconfig.nvim" })
     use({ "neovim/nvim-lspconfig" })
 
     use({
         "hrsh7th/nvim-cmp",
         -- event="InsertEnter",
         -- config=function()
-        --     require("cmp.cmp")
+        --    require("autocomplete.cmp_config")
         -- end
     })
     use({ "hrsh7th/cmp-nvim-lsp" })
-    use({ "hrsh7th/cmp-path", after="nvim-cmp" })
-    use({ "hrsh7th/cmp-buffer", after="nvim-cmp" })
-    use({ "hrsh7th/cmp-cmdline", after="nvim-cmp" })
+    use({ "hrsh7th/cmp-path" })
+    use({ "hrsh7th/cmp-buffer" })
+    use({ "hrsh7th/cmp-cmdline" })
 
         -- snippets
         use({

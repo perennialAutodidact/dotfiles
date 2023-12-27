@@ -11,8 +11,8 @@
 -- end
 --
 
-mason.setup({
-    PATH = 'prepend',
+require("mason").setup({
+    -- PATH = 'prepend',
     -- A list of servers to automatically install if they're not already installed
     ensure_installed = {
         -- 'cssmodules_ls',
@@ -37,10 +37,13 @@ mason.setup({
     -- end,
     -- Next, you can provide a dedicated handler for specific servers.
     -- For example, a handler override for the `rust_analyzer`:
-    ["tsserver"] = function ()
-        require("tsserver").setup {}
-    end
+        -- function(server_name)
+        --     require("lspconfig")[server_name].setup({})
+        -- end,
+        -- ["tsserver"] = function ()
+        --     require("tsserver").setup {}
+        -- end,
     }
 })
 
-mason_lsp.setup({})
+require("mason-lspconfig").setup({})

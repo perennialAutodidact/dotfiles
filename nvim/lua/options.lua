@@ -21,7 +21,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Colors
--- require('everforest').load()
+require('everforest').load()
 vim.g.transparent_enabled = true
 
 -- Font
