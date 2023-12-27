@@ -9,6 +9,8 @@ local modules = {
     -- "autocomplete.snippets",
     -- "autocomplete.luasnip",
 
+    "code_formatting",
+
     "keymaps",
     "lualine",
     "nvim_tree",
@@ -17,6 +19,8 @@ local modules = {
 
     "lsp.mason",
     "lsp.lsp",
+
+    "telescope_config",
 
     "themes.everforest",
 

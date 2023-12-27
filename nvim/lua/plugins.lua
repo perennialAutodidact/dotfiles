@@ -93,6 +93,17 @@ return packer.startup(function(use)
         -- indent indication
         use({ "lukas-reineke/indent-blankline.nvim" })
 
+
+    -- telescope
+    use({
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.x",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    })
+
+    -- code formatting
+    use({ "mhartington/formatter.nvim" })
+
     -- auto-complete & intellisense
     use({ "williamboman/mason.nvim" })
     use({ "williamboman/mason-lspconfig.nvim" })
