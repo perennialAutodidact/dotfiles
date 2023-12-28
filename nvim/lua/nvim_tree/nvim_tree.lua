@@ -17,11 +17,11 @@ local function on_attach(bufnr)
     api.config.mappings.default_on_attach(bufnr)
 end
 
+vim.cmd("autocmd Colorscheme * highlight NvimTreeNormal guibg=NONE guifg=#9da5b3")
+
 require("nvim-tree").setup({
-    on_attach = on_attach,
-    sort = {
-        sorter = "case_sensitive",
-    },
+    -- on_attach = on_attach,
+    sort_by = "case_sensitive",
     view = {
         width = 30,
         side = "left",
@@ -30,6 +30,6 @@ require("nvim-tree").setup({
         group_empty = true,
     },
     filters = {
-        dotfiles = true,
+        dotfiles = false,
     },
 })

@@ -22,13 +22,12 @@ config.keys = {
 
 config.default_domain = 'WSL:Ubuntu'
 
--- config.color_scheme = 'AdventureTime'
-config.color_scheme = 'Earthsong (Gogh)'
+config.color_scheme = 'AdventureTime'
 config.window_background_opacity = 0.8
 
 config.font = wezterm.font_with_fallback({
-    'Hack NFM',
-    'Fira Code'
+    'Hack Nerd Font',
+    'Fira Code',
 })
 
 

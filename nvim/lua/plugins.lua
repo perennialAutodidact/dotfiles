@@ -49,6 +49,10 @@ return packer.startup(function(use)
     use({ "nvim-lualine/lualine.nvim" })
 
     -- colors
+    use({ "daschw/leaf.nvim" })
+    use({ "sainnhe/sonokai" })
+    use({ "folke/tokyonight.nvim" })
+    use({ 'kartikp10/noctis.nvim', requires = { 'rktjmp/lush.nvim' } })
     use({
       "neanias/everforest-nvim",
       config = function ()
@@ -56,10 +60,7 @@ return packer.startup(function(use)
       end
     })
 
-    use({
-      "xiyaowong/transparent.nvim",
-      config = function() require("transparent").setup() end
-    })
+    use({ "xiyaowong/transparent.nvim"  })
 
     -- comments
     use ({
@@ -75,8 +76,8 @@ return packer.startup(function(use)
 
     -- nvim-tree
     use({
-        'nvim-tree/nvim-tree.lua',
-        requires = 'nvim-tree/nvim-web-devicons',
+        'kyazdani42/nvim-tree.lua',
+        requires = {'kyazdani42/nvim-web-devicons'},
     })
 
     -- treesitter

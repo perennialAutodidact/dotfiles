@@ -13,7 +13,8 @@ local modules = {
 
     "keymaps",
     "lualine",
-    "nvim_tree",
+    "nvim_tree.nvim_tree",
+    "nvim_tree.icons",
     "options",
     "plugins",
 
@@ -23,6 +24,9 @@ local modules = {
     "telescope_config",
 
     "themes.everforest",
+    "themes.leaf",
+    "themes.tokyo_night",
+    "transparency",
 
     "treesitter.indent_blankline",
     "treesitter.rainbow_delimiters",

@@ -21,8 +21,9 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Colors
-require('everforest').load()
+-- require('everforest').load()
 vim.g.transparent_enabled = true
+vim.cmd("colorscheme tokyonight")
 
 -- Font
-vim.g.guifont = 'Fira\\ Code'
+-- vim.g.guifont = 'Fira\\ Code' 
