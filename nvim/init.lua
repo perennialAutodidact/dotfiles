@@ -21,6 +21,8 @@ local modules = {
     "lsp.mason",
     "lsp.lsp",
 
+    "markdown_preview",
+
     "telescope_config",
 
     "themes.everforest",
