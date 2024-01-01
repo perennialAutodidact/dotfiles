@@ -20,6 +20,7 @@ local modules = {
 
     "lsp.mason",
     "lsp.lsp",
+    "lsp.rust-tools",
 
     "markdown_preview",
 
@@ -30,6 +31,7 @@ local modules = {
     "themes.tokyo_night",
     "transparency",
 
+    "treesitter.highlight_args",
     "treesitter.indent_blankline",
     "treesitter.rainbow_delimiters",
     "treesitter.transparent_config",

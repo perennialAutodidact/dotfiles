@@ -4,7 +4,17 @@ if not status_ok then
 end
 
 tree_sitter.setup({
-    ensure_installed = { 'javascript', 'typescript', 'lua', 'python', 'html', 'css', 'scss' },
+    ensure_installed = {
+        'javascript',
+        'typescript',
+        'lua',
+        'python',
+        'html',
+        'css',
+        'scss',
+        'rust',
+        'toml'
+    },
 
     sync_install = true,
 

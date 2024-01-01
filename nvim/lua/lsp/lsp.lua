@@ -44,6 +44,23 @@ lspconfig["lua_ls"].setup({
     end
 })
 
+lspconfig["rust_analyzer"].setup({
+    capabilities = capabilities,
+    settings = {
+        ["rust_analyzer"] = {
+            check = {
+                command = "clippy",
+            },
+            diagnostics = {
+                enable = true,
+            }
+        },
+        cargo = {
+            allFeatures = true
+        }
+    },
+})
+
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
