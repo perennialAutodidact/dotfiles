@@ -59,7 +59,7 @@ return packer.startup(function(use)
 			require("everforest").setup()
 		end,
 	})
-
+	use({ "ellisonleao/gruvbox.nvim" })
 	use({ "xiyaowong/transparent.nvim" })
 
 	-- comments

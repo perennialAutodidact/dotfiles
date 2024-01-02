@@ -1,7 +1,7 @@
-vim.opt.clipboard = 'unnamedplus'
-vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
-vim.opt.mouse = 'a'
-vim.api.nvim_set_option('updatetime', 300)
+vim.opt.clipboard = "unnamedplus"
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.mouse = "a"
+vim.api.nvim_set_option("updatetime", 300)
 
 --Tab
 vim.opt.tabstop = 4
@@ -23,8 +23,9 @@ vim.opt.smartcase = true
 
 -- Colors
 -- require('everforest').load()
+vim.o.background = "dark"
 vim.g.transparent_enabled = true
-vim.cmd("colorscheme leaf")
+vim.g.theme = "gruvbox"
 
--- Font
--- vim.g.guifont = 'Fira\\ Code' 
+-- Font (currently set in wezterm config)
+-- vim.g.guifont = 'Fira\\ Code'
