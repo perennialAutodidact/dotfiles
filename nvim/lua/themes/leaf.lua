@@ -1,7 +1,9 @@
 local leaf_ok, leaf = pcall(require, "leaf")
-if not leaf_ok then
-	print("Error loading leaf color scheme")
-	return
+if not vim.g.colors_name == "leaf" then
+    return
+elseif not leaf_ok then
+    print("Error loading leaf color scheme")
+    return
 end
 
 leaf.setup({

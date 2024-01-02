@@ -1,7 +1,10 @@
-local tokyo_ok, tokyo_night = pcall(require, "tokyonight")
-if not tokyo_ok then
-	print("Error loading the tokyo night color scheme")
-	return
+local tokyo_ok, tokyo_night = pcall(require, "tokyo-night")
+
+if not vim.g.colors_name == 'tokyonight' then
+    return
+elseif not tokyo_ok then
+    print("Error loading the tokyo night color scheme")
+    return
 end
 
 tokyo_night.setup({

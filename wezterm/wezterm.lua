@@ -2,10 +2,12 @@ local wezterm = require('wezterm');
 
 local config = {}
 
-if wezterm.config_builder then
-    config = wezterm.config_builder()
-end
+-- if wezterm.config_builder then
+--    config = wezterm.config_builder()
+--    return config
+-- end
 
+wezterm.log_info('config file ' .. wezterm.config_file)
 
 config.keys = {
     {

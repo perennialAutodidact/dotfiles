@@ -14,6 +14,7 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.termguicolors = true
 
 -- Searching

@@ -12,6 +12,7 @@ vim.g.rainbow_delimiters = {
         [""] = "rainbow-delimiters",
         lua = "rainbow-blocks",
         javascript = "rainbow-blocks",
+        ["javascript.jsx"] = "rainbow-blocks",
     },
     highlight = {
         'RainbowDelimiterRed',

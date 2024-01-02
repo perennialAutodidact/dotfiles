@@ -1,0 +1,115 @@
+format = """
+[](#9A348E)\
+$os\
+$username\
+[](bg:#DA627D fg:#9A348E)\
+$directory\
+[](fg:#DA627D bg:#FCA17D)\
+$git_branch\
+$git_status\
+[](fg:#FCA17D bg:#86BBD8)\
+$nodejs\
+$python\
+[](fg:#86BBD8 bg:#06969A)\
+$docker_context\
+[](fg:#06969A bg:#33658A)\
+${custom.time-morning}\
+${custom.time-afternoon}\
+${custom.time-evening}\
+[ ](fg:#33658A)\n$character"""
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Disable the blank line at the start of the prompt
+# add_newline = true
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "bg:#9A348E fg:#FFDDFF"
+style_root = "bg:#9A348E fg:#FFDDFF"
+format = '[$user ]($style)'
+disabled = false
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:#9A348E fg:#FFDDFF"
+disabled = true # Disabled by default
+
+[directory]
+style = "bg:#DA627D fg:#FFDDEE"
+format = "[ $path ]($style)"
+truncation_length = 1
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[python]
+symbol = "🐍"
+detect_extensions = ['py']
+style = "bg:#86BBD8 fg:#E3F5FF"
+format = '[ $symbol ($version)( | $virtualenv )]($style)'
+
+[docker_context]
+symbol = "🐳"
+style = "bg:#06969A #CDFEFF"
+format = '[ $symbol $context ]($style) $path'
+
+[git_branch]
+symbol = ""
+style = "bg:#FCA17D fg:#FFF4F0"
+format = '[ $symbol $branch]($style)'
+truncation_length = 8
+truncation_symbol = "…/"
+ignore_branches = ['master', 'main']
+
+[git_status]
+style = "bg:#FCA17D fg:#CC410E"
+format = '[ $all_status$ahead_behind ]($style)'
+up_to_date = '✓'
+staged = '[++\($count\)](bg:#FCA17D fg:#3C7308)'
+
+[nodejs]
+symbol = ""
+style = "bg:#86BBD8 fg:#E3F5FF"
+format = '[ $symbol(fg:#FF0000) ($version) ]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#33658A fg:#E5F4FF"
+format = '[ ♥ $time ]($style)'
+
+[custom.time-morning]
+command = "date +%R"
+symbol = " 🌄"
+when = ''' [ $(date +%H) -lt 12 ] '''
+style = "bg:#33658A fg:#E5F4FF"
+format = '[$symbol $output ]($style)'
+
+[custom.time-afternoon]
+command = "date +%R"
+symbol = " 🌞"
+when = ''' [ $(date +%H) -ge 12 ] && [ $(date +%H) -lt 17 ] '''
+style = "bg:#33658A fg:#E5F4FF"
+format = '[$symbol $output ]($style)'
+
+[custom.time-evening]
+command = "date +%R"
+symbol = " ☾"
+when = ''' [ $(date +%H) -ge 17 ] '''
+style = "bg:#33658A fg:#E5F4FF"
+format = '[$symbol $output ]($style)'
