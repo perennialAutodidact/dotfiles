@@ -9,12 +9,8 @@ local modules = {
 	-- "autocomplete.snippets",
 	-- "autocomplete.luasnip",
 
-<<<<<<< Updated upstream
 	"code_formatting",
-=======
-    "clipboard",
-    -- "code_formatting",
->>>>>>> Stashed changes
+	"clipboard",
 
 	"keymaps",
 	"lualine",
@@ -29,15 +25,12 @@ local modules = {
 
 	"markdown_preview",
 
-<<<<<<< Updated upstream
 	"telescope_config",
-=======
-    -- "themes.everforest",
-    "themes.leaf",
-    "themes.tokyo_night",
+	-- "themes.everforest",
+	"themes.leaf",
+	"themes.tokyo_night",
 
-    "transparency",
->>>>>>> Stashed changes
+	"transparency",
 
 	"themes.everforest",
 	"themes.leaf",

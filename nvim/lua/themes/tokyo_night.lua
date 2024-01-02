@@ -1,4 +1,4 @@
-local tokyo_ok, tokyo_night = pcall(require, "tokyo-night")
+local tokyo_ok, tokyo_night = pcall(require, "tokyonight")
 
 if not vim.g.colors_name == 'tokyonight' then
     return
