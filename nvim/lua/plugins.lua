@@ -108,8 +108,10 @@ return packer.startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 	})
 
-	-- code formatting
+	-- code formatting / linting
 	use({ "mhartington/formatter.nvim" })
+	use({ "MunifTanjim/eslint.nvim" })
+	use({ "mfussenegger/nvim-lint" })
 
 	-- auto-complete & intellisense
 	use({ "williamboman/mason.nvim" })

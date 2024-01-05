@@ -9,7 +9,9 @@ local modules = {
 	-- "autocomplete.snippets",
 	-- "autocomplete.luasnip",
 
-	"code_formatting",
+	"code_formatting.config",
+	"code_formatting.eslint",
+
 	"clipboard",
 
 	"keymaps",

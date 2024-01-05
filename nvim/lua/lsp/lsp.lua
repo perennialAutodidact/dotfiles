@@ -12,6 +12,7 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 lspconfig["tsserver"].setup({
 	capabilities = capabilities,
 })
+
 lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_init = function(client)
@@ -64,6 +65,60 @@ lspconfig["rust_analyzer"].setup({
 	},
 })
 
+-- local function eslint_config_exists()
+-- 	local eslintrc = vim.fn.glob(".eslintrc*", false, 1)
+-- 	if not vim.tbl_isempty(eslintrc) then
+-- 		return true
+-- 	end
+-- 	if vim.fn.filereadable("package.json") then
+-- 		if vim.fn.json_decode(vim.fn.readfile("package.json"))["eslintConfig"] then
+-- 			return true
+-- 		end
+-- 	end
+-- 	return false
+-- end
+--
+-- local eslint = {
+-- 	lintCommand = "eslint_d -f unix --stdin --stdin-filename ${INPUT}",
+-- 	lintStdin = true,
+-- 	lintFormats = { "%f:%l:%c: %m" },
+-- 	lintIgnoreExitCode = true,
+-- 	formatCommand = "eslint_d --fix-to-stdout --stdin --stdin-filename=${INPUT}",
+-- 	formatStdin = true,
+-- }
+--
+-- lspconfig["efm"].setup({
+-- 	on_attach = function(client)
+-- 		client.resolved_capabilities.document_formatting = true
+-- 		client.resolved_capabilities.goto_definition = false
+-- 		set_lsp_config(client)
+-- 	end,
+-- 	root_dir = function()
+-- 		if not eslint_config_exists() then
+-- 			return nil
+-- 		end
+-- 		return vim.fn.getcwd()
+-- 	end,
+-- 	settings = {
+-- 		languages = {
+-- 			javascript = { eslint },
+-- 			javascriptreact = { eslint },
+-- 			["javascript.jsx"] = { eslint },
+-- 			typescript = { eslint },
+-- 			["typescript.tsx"] = { eslint },
+-- 			typescriptreact = { eslint },
+-- 		},
+-- 	},
+-- 	filetypes = {
+-- 		"javascript",
+-- 		"javascriptreact",
+-- 		"javascript.jsx",
+-- 		"typescript",
+-- 		"typescript.tsx",
+-- 		"typescriptreact",
+-- 	},
+-- })
+
 -- Customized on_attach function
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap = true, silent = true }
@@ -101,29 +156,3 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, bufopts)
 	end,
 })
-
--- -- Use an on_attach function to only map the following keys
--- -- after the language server attaches to the current buffer
--- local on_attach = function(client, bufnr)
---     -- Enable completion triggered by <c-x><c-o>
---     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
---     -- See `:help vim.lsp.*` for documentation on any of the below functions
---     local bufopts = { noremap = true, silent = true, buffer = bufnr }
---     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
---     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
---     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
---     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
---     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
---     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
---     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
---     vim.keymap.set('n', '<space>wl', function()
---         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
---     end, bufopts)
---     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
---     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
---     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
---     vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
---     vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
--- end
-
--- local capabilities = require("cmp_nvim_lsp").default_capabilities()

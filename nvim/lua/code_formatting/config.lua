@@ -5,6 +5,7 @@
 -- end
 
 local util = require("formatter.util")
+local defaults = require("formatter.defaults")
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
@@ -23,8 +24,19 @@ local function prettier()
 	return {
 		exe = "prettier",
 		args = {
+			"--single-quote",
+			"--jsx-single-quote",
+			"--arrow-parens=avoid",
 			vim.fn.shellescape(vim.api.nvim_buf_get_name(0)),
 		},
+		stdin = true,
+	}
+end
+
+local function eslint_d()
+	return {
+		exe = "eslint_d",
+		args = { "--stdin", "--fix-to-stdout", "--stdin-filename", "$FILENAME" },
 		stdin = true,
 	}
 end
@@ -33,14 +45,17 @@ require("formatter").setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
 	filetype = {
-		javascript = { prettier },
-		["javascript.jsx"] = { prettier },
-		typescript = { prettier },
-		["typescript.tsx"] = { prettier },
+		javascript = { eslint_d },
+		-- ["javascript.jsx"] = { prettier },
+		-- typescript = { prettier },
+		-- ["typescript.tsx"] = { prettier },
 		rust = function()
 			return {
 				exe = "rustfmt",
-				args = { "--emit=stdout", "--edition=2021" },
+				args = {
+					"--emit=stdout",
+					"--edition=2021",
+				},
 				stdin = true,
 			}
 		end,
