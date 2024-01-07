@@ -110,7 +110,7 @@ return packer.startup(function(use)
 
 	-- code formatting / linting
 	use({ "mhartington/formatter.nvim" })
-	use({ "MunifTanjim/eslint.nvim" })
+	use({ "stevearc/conform.nvim" })
 	use({ "mfussenegger/nvim-lint" })
 
 	-- auto-complete & intellisense

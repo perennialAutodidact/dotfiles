@@ -10,7 +10,7 @@ local modules = {
 	-- "autocomplete.luasnip",
 
 	"code_formatting.config",
-	"code_formatting.eslint",
+	"code_formatting.conform",
 
 	"clipboard",
 
