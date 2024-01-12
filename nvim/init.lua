@@ -1,54 +1,45 @@
--- package.path = './lua;' .. package.path
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
 
 -- disable netrw for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-local modules = {
-	"autocomplete.cmp_config",
-	-- "autocomplete.snippets",
-	-- "autocomplete.luasnip",
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
-	"code_formatting.config",
-	"code_formatting.conform",
-
-	"clipboard",
-
+local config_modules = {
+	-- "clipboard",
 	"keymaps",
-	"lualine",
-	"nvim_tree.nvim_tree",
-	"nvim_tree.icons",
 	"options",
-	"plugins",
-
-	"lsp.mason",
-	"lsp.lsp",
-	"lsp.rust-tools",
-
-	"markdown_preview",
-
-	"telescope_config",
-	-- "themes.everforest",
-	"themes.leaf",
-	"themes.tokyo_night",
-
-	"transparency",
-
-	"themes.everforest",
-	"themes.leaf",
-	"themes.tokyo_night",
-	"themes.gruvbox",
-	"transparency",
-
-	"treesitter.highlight_args",
-	"treesitter.indent_blankline",
-	"treesitter.rainbow_delimiters",
-	"treesitter.transparent_config",
-	"treesitter.treesitter",
 }
 
-for i in ipairs(modules) do
-	local module = modules[i]
+for i in ipairs(config_modules) do
+	local module = config_modules[i]
 
-	require(module)
+	require("config." .. module)
 end
+
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+		{ import = "plugins.autocomplete" },
+		{ import = "plugins.code" },
+		{ import = "plugins.editor" },
+		{ import = "plugins.editor.themes" },
+		{ import = "plugins.lsp" },
+		{ import = "plugins.nvim_tree" },
+		{ import = "plugins.telescope" },
+		{ import = "plugins.treesitter" },
+	},
+})
