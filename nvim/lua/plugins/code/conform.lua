@@ -1,6 +1,6 @@
 return {
 	"stevearc/conform.nvim",
-	-- event = { "PreBufRead", "BufNewFile" },
+	event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		local ok, conform = pcall(require, "conform")
 		if not ok then
@@ -19,7 +19,8 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				javascript = { eslint_d },
+				javascript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
 			},
 			format_on_save = {
 				async = false,
