@@ -11,7 +11,7 @@ return {
 					"html",
 					-- 'jsonls',
 					-- 'quick_lint_js',
-					-- 'marksman',
+					'marksman',
 					-- 'pylsp',
 					"lua_ls",
 					"tsserver",

@@ -3,6 +3,10 @@ if not status_ok then
 	return
 end
 
+local get_word_count = function()
+    return vim.fn.wordcount().words .. "words"
+end
+
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
 end
@@ -90,7 +94,7 @@ lualine.setup({
 		section_separators = { left = "", right = "" },
 		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
 		always_divide_middle = true,
-		theme = "gruvbox",
+		-- theme = "gruvbox",
 	},
 	sections = {
 		lualine_a = { branch, diagnostics },
@@ -98,7 +102,7 @@ lualine.setup({
 		lualine_c = {},
 		lualine_x = { diff, spaces, filetype },
 		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_z = { get_word_count, progress },
 	},
 	inactive_sections = {
 		lualine_a = {},
