@@ -25,6 +25,8 @@ config.keys = {
 -- config.color_scheme = 'AdventureTime'
 config.color_scheme = "Earthsong (Gogh)"
 config.window_background_opacity = 0.9
+config.initial_rows = 24
+config.initial_cols = 100
 
 font_dirs = { '/home/.local/share/fonts/truetype'  }
 config.font = wezterm.font_with_fallback({
